@@ -4,6 +4,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import App from './App';
 import reducer from './reducers'
+import 'font-awesome/css/font-awesome.css'
 import './index.css';
 
 // const store = createStore(reducer)
