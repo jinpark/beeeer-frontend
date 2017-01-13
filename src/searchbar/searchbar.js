@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import GeoLocator from '../geolocator/geolocator'
+import GeoLocator from './geolocator'
 import './searchbar.css';
 
 class SearchBar extends Component {

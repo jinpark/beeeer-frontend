@@ -4,6 +4,10 @@ import ReactModal from 'react-modal';
 import './mapmarker.css';
 
 class MapMarker extends Component {
+  static defaultProps = {
+    places: []
+  };
+
   constructor () {
     super();
     this.state = {
@@ -23,10 +27,10 @@ class MapMarker extends Component {
 
   render() {
     return (
-      <div className="marker">
-        <i className="fa fa-beer fa-3x" aria-hidden="true" onClick={this.handleOpenModal}></i>
+      <div className="mapmarker">  
+        <i className="fa fa-beer fa-3x" aria-hidden="true" onClick={this.handleOpenModal} ></i>
         <ReactModal isOpen={this.state.showModal} contentLabel="Example Modal" >
-          <h1>modal open</h1>
+          <h1>{this.props.place.name}</h1>
           <button onClick={this.handleCloseModal}>Close Modal</button>
         </ReactModal>
       </div>
