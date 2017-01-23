@@ -12,14 +12,15 @@ class SimpleMap extends Component {
     center: {lat: 37.4978602, lng: 127.0253183},
     zoom: 16,
     currentLocation: {lat: 37.4978602, lng: 127.0253183}
-    // mapOptions = (maps) => {
-    //   return { styles: mapstyles, 
-    //   zoomControlOptions: {
-    //     position: maps.ControlPosition.RIGHT_TOP,
-    //     style: maps.ZoomControlStyle.SMALL
-    //   }
-    // }}
   };
+
+  _onChildMouseEnter = (key /*, childProps */) => {
+    this.props.onHoverKeyChange(key);
+  }
+
+  _onChildMouseLeave = (/* key, childProps */) => {
+    this.props.onHoverKeyChange(null);
+  }
 
   componentDidMount = () => {
     const { dispatch } = this.props
@@ -39,8 +40,9 @@ class SimpleMap extends Component {
     // "DistanceMatrixElementStatus", "ElevationStatus", "GeocoderLocationType", "GeocoderStatus", "KmlLayerStatus",
     // "MaxZoomStatus", "StreetViewStatus", "TransitMode", "TransitRoutePreference", "TravelMode", "UnitSystem"
     return {
+      mapTypeControl: true,
       zoomControlOptions: {
-        position: maps.ControlPosition.RIGHT_TOP,
+        position: maps.ControlPosition.LEFT_BOTTOM,
         style: maps.ZoomControlStyle.SMALL
       },
       styles: mapstyles
@@ -48,16 +50,16 @@ class SimpleMap extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
        <GoogleMap
-        bootstrapURLKeys={{keys: 'AIzaSyAhna2TZMIT4O6ZUBhau3t-K5dsQdVjN54'}}
+        bootstrapURLKeys={{key: 'AIzaSyBwmXcrHsefEVaN6tvmBWen5_YmGLPoqIA'}}
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
         center={this.props.currentLocation}
-        options={this.createMapOptions} >
+        options={this.createMapOptions} 
+      >
         {this.props.places.places.map((place, i) =>
-          <MapMarker key={i.toString() + place.name} place={place} lat={place.lat} lng={place.lng} />
+          <MapMarker key={i.toString() + place.name} place={place} lat={place.lat} lng={place.lon} $hover={this.props.$hover}/>
         )}
       </GoogleMap>
     );

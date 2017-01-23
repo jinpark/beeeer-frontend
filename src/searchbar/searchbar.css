@@ -1,0 +1,6 @@
+.search-bar {
+    position: fixed;
+    z-index: 1;
+    background-color: #f4a536;
+    width: 100%;
+}

@@ -1,0 +1,16 @@
+.tooltip {
+    background-color: white;
+    position: absolute;
+    bottom: 3px;
+    z-index: 1;
+    font-weight: bolder;
+    font-size: 2em;
+    min-width: 40px;
+    transition: all 1s linear;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tooltip h1 {
+    word-break: keep-all;
+}

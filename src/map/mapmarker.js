@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactModal from 'react-modal';
+import Tooltip from './tooltip'
 
 import './mapmarker.css';
 
@@ -8,31 +8,21 @@ class MapMarker extends Component {
     places: []
   };
 
-  constructor () {
-    super();
-    this.state = {
-      showModal: false
-    };
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-  
-  handleOpenModal () {
-    this.setState({ showModal: true });
-  }
-  
-  handleCloseModal () {
-    this.setState({ showModal: false });
+  constructor(props) {
+     super(props);
+     this.state = {open: false};
+     this.openTooltip = this.openTooltip.bind(this);
+   }
+
+  openTooltip() {
+    this.setState({open: !this.state.open});
   }
 
   render() {
     return (
-      <div className="mapmarker">  
-        <i className="fa fa-beer fa-3x" aria-hidden="true" onClick={this.handleOpenModal} ></i>
-        <ReactModal isOpen={this.state.showModal} contentLabel="Example Modal" >
-          <h1>{this.props.place.name}</h1>
-          <button onClick={this.handleCloseModal}>Close Modal</button>
-        </ReactModal>
+      <div className="mapmarker" onClick={this.openTooltip}>  
+        <Tooltip $hover={this.props.$hover} place={this.props.place} open={this.state.open} />
+        <i className="fa fa-beer fa-3x" aria-hidden="true"></i>
       </div>
     );
   }

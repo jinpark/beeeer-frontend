@@ -21,7 +21,7 @@ class GeoLocator extends Component {
   render() {
     return (
       <div className="geolocator">
-        <button onClick={this.geolocate.bind(this)}>F</button>
+        <i className="fa fa-crosshairs fa-5x" onClick={this.geolocate.bind(this)} aria-hidden="true"></i>
       </div>
     );
   }

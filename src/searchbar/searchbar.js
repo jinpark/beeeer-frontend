@@ -7,11 +7,8 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="search-bar">
+      <span>BEEEEEEER</span>
       <GeoLocator />
-      <form>
-        <input type="text" name="firstname" placeholder="something" /><br />
-        <input type="submit" value="Submit" />
-      </form>
       </div>
     );
   }

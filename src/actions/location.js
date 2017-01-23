@@ -20,7 +20,7 @@ function requestPlaces() {
 export function fetchPlaces() {
   return dispatch => {
     dispatch(requestPlaces())
-    return fetch('https://gist.githubusercontent.com/jinpark/32647850029d64b6e88f152f7293b664/raw/c99a0a22c4520afda8269289e99378db9c0eb27f/places.json')
+    return fetch('http://beeeer.herokuapp.com/all/')
       .then(response => response.json())
       .then(json => dispatch(receivePlaces(json)))
   }
