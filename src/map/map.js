@@ -10,7 +10,7 @@ import './map.css';
 class SimpleMap extends Component {
   static defaultProps = {
     center: {lat: 37.4978602, lng: 127.0253183},
-    zoom: 16,
+    zoom: 14,
     currentLocation: {lat: 37.4978602, lng: 127.0253183}
   };
 

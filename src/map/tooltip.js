@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+import onClickOutside from 'react-onclickoutside';
+
 
 import './tooltip.css';
 
@@ -19,12 +21,13 @@ const customModalStyle = {content: {border: '0',
                                     maxWidth: '60rem'
                                   }};
 
-class Tooltip extends Component {
+class ATooltip extends Component {
 
   constructor () {
     super();
     this.state = {
-      showModal: false
+      showModal: false,
+      showTooltip: false
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -37,6 +40,10 @@ class Tooltip extends Component {
   
   handleCloseModal () {
     this.setState({ showModal: false });
+  }
+
+  handleClickOutside() {
+    this.setState({ showTooltip: false });
   }
 
   render() {
@@ -72,4 +79,5 @@ class Tooltip extends Component {
   }
 }
 
+const Tooltip = onClickOutside(ATooltip);
 export default Tooltip;
