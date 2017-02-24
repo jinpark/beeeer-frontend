@@ -5,21 +5,7 @@ import onClickOutside from 'react-onclickoutside';
 
 import './tooltip.css';
 
-const customModalStyle = {content: {border: '0',
-                                    borderRadius: '4px',
-                                    bottom: 'auto',
-                                    minHeight: '10rem',
-                                    maxHeight: 'calc(80% - 100px)',
-                                    left: '50%',
-                                    padding: '2rem',
-                                    position: 'fixed',
-                                    right: 'auto',
-                                    top: 'calc(50% + 50px)',
-                                    transform: 'translate(-50%,-50%)',
-                                    minWidth: '20rem',
-                                    width: '80%',
-                                    maxWidth: '60rem'
-                                  }};
+const customModalStyle = {};
 
 class ATooltip extends Component {
 
@@ -56,26 +42,38 @@ class ATooltip extends Component {
 
     return (
       <div className="tooltip-modal" style={hover}>
-        <div className="tooltip" style={hover}>  
-          <div className="tooltip__title">
-          <h1>{this.props.place.name}</h1> 
-          <button onClick={this.handleOpenModal}>
-            <i className="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
-          </button>
-          </div>
-          <p>{this.props.place.description}</p>
-        </div>
-        <ReactModal isOpen={this.state.showModal} contentLabel="{this.props.place.name}" style={customModalStyle}>
-          <div className="modal__title">
-            <h1>{this.props.place.name}</h1>
-            <button onClick={this.handleCloseModal}>
-              <i className="fa fa-times fa-2x" aria-hidden="true"></i>
+        <article className="message is-warning" style={hover}>
+          <div className="message-header">
+            {this.props.place.name}
+            <button onClick={this.handleOpenModal}>
+              <i className="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
             </button>
           </div>
-          <hr/>
-          <img src={this.props.place.image} />
-          <p>{this.props.place.description}</p>
+          <div className="message-body">
+            {this.props.place.description}
+          </div>
+        </article>
+
+        <ReactModal isOpen={this.state.showModal} contentLabel="{this.props.place.name}" style={customModalStyle}>
+          <div className="modal is-active">
+            <div className="modal-background"></div>
+            <div className="modal-card">
+              <header className="modal-card-head">
+                <p className="modal-card-title">{this.props.place.name}</p>
+                <button className="delete" onClick={this.handleCloseModal}></button>
+              </header>
+              <section className="modal-card-body">
+                <img src={this.props.place.image} />
+
+                {this.props.place.description}
+              </section>
+              <footer className="modal-card-foot">
+                {this.props.place.address}
+              </footer>
+            </div>
+          </div>
         </ReactModal>
+
       </div>
     );
   }

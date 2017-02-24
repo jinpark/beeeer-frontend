@@ -23,9 +23,9 @@ class MapMarker extends Component {
 
   render() {
     return (
-      <div className="mapmarker" onClick={this.openTooltipAndCenter}>  
-        <Tooltip $hover={this.props.$hover} place={this.props.place} open={this.state.open} />
+      <div className="mapmarker" onClick={this.openTooltipAndCenter}>
         <i className="fa fa-beer fa-3x" aria-hidden="true"></i>
+        <Tooltip $hover={this.props.$hover} place={this.props.place} open={this.state.open} />
       </div>
     );
   }
