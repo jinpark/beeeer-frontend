@@ -7,8 +7,8 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="search-bar">
-      <span>BEEEEEEER</span>
       <GeoLocator />
+      <span className="logo">beeeer</span>
       </div>
     );
   }

@@ -48,13 +48,15 @@ class ATooltip extends Component {
 
   render() {
     const hover = {
-      opacity: this.props.open ? 1 : 0
+      opacity: this.props.open ? 1 : 0,
+      height: this.props.open ? 'auto' : 0,
+      padding: this.props.open ? 'inherit' : 0
     };
 
 
     return (
-      <div className="tooltip-modal" style={hover} >
-        <div className="tooltip">  
+      <div className="tooltip-modal" style={hover}>
+        <div className="tooltip" style={hover}>  
           <div className="tooltip__title">
           <h1>{this.props.place.name}</h1> 
           <button onClick={this.handleOpenModal}>

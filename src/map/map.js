@@ -51,17 +51,19 @@ class SimpleMap extends Component {
 
   render() {
     return (
-       <GoogleMap
-        bootstrapURLKeys={{key: 'AIzaSyBwmXcrHsefEVaN6tvmBWen5_YmGLPoqIA'}}
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-        center={this.props.currentLocation}
-        options={this.createMapOptions} 
-      >
-        {this.props.places.places.map((place, i) =>
-          <MapMarker key={i.toString() + place.name} place={place} lat={place.lat} lng={place.lon} $hover={this.props.$hover}/>
-        )}
-      </GoogleMap>
+      <div className="googlemap">
+        <GoogleMap
+          bootstrapURLKeys={{key: 'AIzaSyBwmXcrHsefEVaN6tvmBWen5_YmGLPoqIA'}}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+          center={this.props.currentLocation}
+          options={this.createMapOptions} 
+        >
+          {this.props.places.places.map((place, i) =>
+            <MapMarker key={i.toString() + place.name} place={place} lat={place.lat} lng={place.lon} $hover={this.props.$hover}/>
+          )}
+        </GoogleMap>
+      </div>
     );
   }
 }

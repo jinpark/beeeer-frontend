@@ -1,6 +1,15 @@
 .search-bar {
-    position: fixed;
     z-index: 1;
     background-color: #f4a536;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+}
+
+.search-bar .logo {
+    margin: auto;
+    font-family: 'Comfortaa', cursive;
+    font-size: 2.5em;
+    font-weight: bold; 
 }

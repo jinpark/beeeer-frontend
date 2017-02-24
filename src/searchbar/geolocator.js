@@ -7,7 +7,6 @@ class GeoLocator extends Component {
   geolocate(){
     var that = this;
     navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(this);
       that.props.updateLocation(position.coords.latitude, position.coords.longitude);
       // store.dispatch({ type: 'SET_LATLNG', lat: position.coords.latitude, lng: position.coords.longitude })
     });
@@ -21,7 +20,7 @@ class GeoLocator extends Component {
   render() {
     return (
       <div className="geolocator">
-        <i className="fa fa-crosshairs fa-5x" onClick={this.geolocate.bind(this)} aria-hidden="true"></i>
+        <i className="fa fa-crosshairs fa-3x" onClick={this.geolocate.bind(this)} aria-hidden="true"></i>
       </div>
     );
   }

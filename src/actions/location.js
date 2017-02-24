@@ -20,7 +20,7 @@ function requestPlaces() {
 export function fetchPlaces() {
   return dispatch => {
     dispatch(requestPlaces())
-    return fetch('/map/all/')
+    return fetch('//beeeer.herokuapp.com/map/all/')
       .then(response => response.json())
       .then(json => dispatch(receivePlaces(json)))
   }
