@@ -28,6 +28,8 @@
 
 .message-header {
     word-break: keep-all;
+    font-weight: bold;
+    padding-left: 25px;
 }
 
 .tooltip p {
@@ -38,4 +40,12 @@
     display: flex;
     justify-content: space-between;
     font-size: 2em;
+}
+
+.modal-card-title {
+    text-align: center;
+}
+
+.modal-card-body img {
+    width: 100%;
 }
