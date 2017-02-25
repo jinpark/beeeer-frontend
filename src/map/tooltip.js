@@ -45,9 +45,7 @@ class ATooltip extends Component {
         <article className="message is-warning" style={hover}>
           <div className="message-header">
             {this.props.place.name}
-            <button onClick={this.handleOpenModal}>
-              <i className="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
-            </button>
+            <i className="fa fa-chevron-right fa-2x" aria-hidden="true" onClick={this.handleOpenModal}></i>
           </div>
           <div className="message-body">
             {this.props.place.description}

@@ -13,7 +13,7 @@
 
 .message {
     width: 45vw;
-    max-height: 300px;
+    max-height: calc(50vh - 70px);
     overflow: scroll;
     border-radius: 10px;
     position: absolute;
