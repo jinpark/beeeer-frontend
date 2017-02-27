@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import onClickOutside from 'react-onclickoutside';
+
 import Tooltip from './tooltip'
 
 import './mapmarker.css';
@@ -18,6 +20,10 @@ class MapMarker extends Component {
   openTooltipAndCenter() {
     this.setState({open: !this.state.open});
     this.props.updateLocation(this.props.place.lat, this.props.place.lon);
+  }
+
+  handleClickOutside(event) {
+    this.setState({open: false});
   }
 
 
@@ -48,6 +54,6 @@ const mapDispatchToProps = (dispatch) => {
 const MapMarkerPage = connect(
   null,
   mapDispatchToProps
-)(MapMarker)
+)(onClickOutside(MapMarker))
 
 export default MapMarkerPage;

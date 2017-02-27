@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
-import onClickOutside from 'react-onclickoutside';
-
 
 import './tooltip.css';
 
 const customModalStyle = {};
 
-class ATooltip extends Component {
+class Tooltip extends Component {
 
   constructor () {
     super();
@@ -28,12 +26,8 @@ class ATooltip extends Component {
     this.setState({ showModal: false });
   }
 
-  handleClickOutside() {
-    this.setState({ showTooltip: false });
-  }
-
   render() {
-    const hover = {
+    const open = {
       opacity: this.props.open ? 1 : 0,
       height: this.props.open ? 'auto' : 0,
       padding: this.props.open ? 'inherit' : 0
@@ -41,8 +35,8 @@ class ATooltip extends Component {
 
 
     return (
-      <div className="tooltip-modal" style={hover}>
-        <article className="message is-warning" style={hover}>
+      <div className="tooltip-modal" style={open}>
+        <article className="message is-warning" style={open}>
           <div className="message-header">
             {this.props.place.name}
             <i className="fa fa-chevron-right fa-2x" aria-hidden="true" onClick={this.handleOpenModal}></i>
@@ -77,5 +71,4 @@ class ATooltip extends Component {
   }
 }
 
-const Tooltip = onClickOutside(ATooltip);
 export default Tooltip;
