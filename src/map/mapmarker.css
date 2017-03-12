@@ -1,4 +1,3 @@
-.mapmarker i {
-    color: orange;
-    cursor: pointer;
+.mapmarker img {
+  cursor: pointer;
 }
