@@ -5,6 +5,7 @@ import onClickOutside from 'react-onclickoutside';
 import Tooltip from './tooltip'
 
 import './mapmarker.css';
+import beer from './beer.png';
 
 class MapMarker extends Component {
   static defaultProps = {
@@ -30,7 +31,7 @@ class MapMarker extends Component {
   render() {
     return (
       <div className="mapmarker" onClick={this.openTooltipAndCenter}>
-        <i className="fa fa-beer fa-3x" aria-hidden="true"></i>
+        <img src={beer} alt=""/>
         <Tooltip $hover={this.props.$hover} place={this.props.place} open={this.state.open} />
       </div>
     );
